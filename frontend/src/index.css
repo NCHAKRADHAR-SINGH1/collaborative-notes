@@ -1,0 +1,353 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+
+:root {
+  --bg: #0f172a;
+  --panel: rgba(15, 23, 42, 0.82);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #fbbf24;
+  --accent-strong: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(251, 191, 36, 0.18), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.16), transparent 35%),
+    linear-gradient(135deg, #020617 0%, #0f172a 100%);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.auth-shell,
+.dashboard-shell {
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.auth-shell {
+  display: grid;
+  place-items: center;
+}
+
+.auth-card,
+.composer-card,
+.state-card,
+.note-card {
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 80px rgba(2, 6, 23, 0.4);
+}
+
+.auth-card {
+  width: min(480px, 100%);
+  border-radius: 28px;
+  padding: 32px;
+}
+
+.auth-brand,
+.dashboard-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.auth-card h1,
+.dashboard-header h1,
+.composer-card h2 {
+  margin: 12px 0 8px;
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.05;
+}
+
+.auth-card p,
+.dashboard-header p,
+.auth-switch,
+.state-card,
+.note-card p {
+  color: var(--muted);
+}
+
+.auth-form,
+.composer-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.auth-form input,
+.composer-form input,
+.composer-form textarea,
+.search-input {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: rgba(15, 23, 42, 0.72);
+  color: var(--text);
+  padding: 14px 16px;
+  outline: none;
+}
+
+.auth-form input:focus,
+.composer-form input:focus,
+.composer-form textarea:focus,
+.search-input:focus {
+  border-color: rgba(251, 191, 36, 0.7);
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.12);
+}
+
+.auth-form button,
+.composer-form button,
+.secondary-button,
+.note-card button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+}
+
+.auth-form button,
+.composer-form button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #111827;
+  font-weight: 700;
+}
+
+.secondary-button,
+.note-card button {
+  background: rgba(148, 163, 184, 0.16);
+  color: var(--text);
+}
+
+.danger-button {
+  background: rgba(239, 68, 68, 0.18) !important;
+}
+
+.auth-form button:hover,
+.composer-form button:hover,
+.secondary-button:hover,
+.note-card button:hover {
+  transform: translateY(-1px);
+}
+
+.auth-error {
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: rgba(239, 68, 68, 0.16);
+  color: #fecaca;
+}
+
+.success-banner {
+  margin-top: 12px;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: rgba(34, 197, 94, 0.16);
+  color: #bbf7d0;
+}
+
+.auth-switch {
+  margin-top: 18px;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.composer-card,
+.state-card {
+  border-radius: 28px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.composer-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.composer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.composer-row label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.note-card {
+  border-radius: 24px;
+  padding: 18px;
+  color: #111827;
+  min-height: 220px;
+}
+
+.note-card h3,
+.note-card p,
+.note-card span {
+  color: inherit;
+}
+
+.note-card__header,
+.note-card__footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.note-card__header-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.note-share-meta,
+.shared-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.note-share-meta {
+  margin-top: 14px;
+}
+
+.note-share-meta select {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: rgba(15, 23, 42, 0.72);
+  color: var(--text);
+  padding: 10px 14px;
+}
+
+.share-code-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #f8fafc;
+}
+
+.share-code-label {
+  color: rgba(248, 250, 252, 0.7);
+}
+
+.share-code-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.92rem;
+  color: #fff;
+  word-break: break-all;
+}
+
+.note-card input,
+.note-card textarea,
+.note-card select {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+}
+
+.note-card input::placeholder,
+.note-card textarea::placeholder {
+  color: rgba(248, 250, 252, 0.55);
+}
+
+.note-card button,
+.note-card .secondary-button,
+.note-card .danger-button {
+  background: rgba(15, 23, 42, 0.88) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+.note-card .danger-button {
+  background: rgba(185, 28, 28, 0.92) !important;
+}
+
+.note-card__header button,
+.note-card__footer button {
+  min-width: 92px;
+}
+
+.note-share-meta__empty {
+  color: var(--muted);
+}
+
+.note-card__footer {
+  margin-top: 20px;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .auth-shell,
+  .dashboard-shell {
+    padding: 16px;
+  }
+
+  .auth-card,
+  .composer-card,
+  .state-card {
+    padding: 20px;
+    border-radius: 22px;
+  }
+}

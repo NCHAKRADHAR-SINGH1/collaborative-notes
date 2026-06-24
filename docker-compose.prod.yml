@@ -1,0 +1,2 @@
+# Deprecated: Docker production compose removed.
+# Use platform deployment (Render/Netlify) or non-Docker hosting per README.
